@@ -155,7 +155,12 @@ $(document).ready(function () {
 <p>Ted: data wrangling and counts</p>
 <pre class="r"><code>get_guns &lt;- gc_df %&gt;% 
   filter(gender != &quot;NA&quot;, make_get_guns != &quot;NA&quot;) %&gt;% 
-  count(gender, make_get_guns)</code></pre>
+  count(gender, make_get_guns) %&gt;% 
+  spread(make_get_guns, n) %&gt;% 
+  select(-gender)
+
+rownames(get_guns) &lt;- c(&quot;Female&quot;, &quot;Male&quot;)</code></pre>
+<pre><code>## Warning: Setting row names on a tibble is deprecated.</code></pre>
 
 
 
