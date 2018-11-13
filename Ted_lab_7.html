@@ -131,14 +131,14 @@ $(document).ready(function () {
 
 <p>This: I’m Ted and I’m updating this markdown file.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>## ✔ ggplot2 3.0.0     ✔ purrr   0.2.5
-## ✔ tibble  1.4.2     ✔ dplyr   0.7.6
-## ✔ tidyr   0.8.1     ✔ stringr 1.3.1
-## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
-<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre><code>## -- Attaching packages ------------------------------------------------------ tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 3.0.0     v purrr   0.2.5
+## v tibble  1.4.2     v dplyr   0.7.6
+## v tidyr   0.8.1     v stringr 1.3.1
+## v readr   1.1.1     v forcats 0.3.0</code></pre>
+<pre><code>## -- Conflicts --------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>gc_df &lt;- read_csv(&quot;gc_df.csv&quot;)</code></pre>
 <pre><code>## Parsed with column specification:
 ## cols(
@@ -161,6 +161,27 @@ $(document).ready(function () {
 
 rownames(get_guns) &lt;- c(&quot;Female&quot;, &quot;Male&quot;)</code></pre>
 <pre><code>## Warning: Setting row names on a tibble is deprecated.</code></pre>
+<div id="my-name-is-yirui-and-i-am-going-to-do-chi-square-test-for-the-independence" class="section level3">
+<h3>My name is Yirui and I am going to do chi-square test for the independence!</h3>
+<p>We ask: is there a significant association between sex and opinion on whether guns should be more diffcult,easier or the same difficulty to get?</p>
+<pre class="r"><code># let us look at actual propoetions:
+
+guns_prop &lt;- prop.table(as.matrix(get_guns),1) #work with mertic data frame
+guns_prop</code></pre>
+<pre><code>##            Easier More Difficult      Same
+## Female 0.02980675      0.5738618 0.3963315
+## Male   0.08139535      0.4038055 0.5147992</code></pre>
+<pre class="r"><code>#run chi-square test for independence
+guns_x2 &lt;- chisq.test(get_guns)
+guns_x2</code></pre>
+<pre><code>## 
+##  Pearson's Chi-squared test
+## 
+## data:  get_guns
+## X-squared = 203.6, df = 2, p-value &lt; 2.2e-16</code></pre>
+<pre class="r"><code>#Reject the null hypothesis</code></pre>
+<p>Recommended government action on gun access differs significantly between male(n = ) and female (n = ) (<span class="math inline">\(\chi^2\)</span>(2)= ….., p&lt;0.001). A much higher proportion of female respondents recommend making it more diffcult to get guns, compare to 40.4% for male respondents</p>
+</div>
 
 
 
