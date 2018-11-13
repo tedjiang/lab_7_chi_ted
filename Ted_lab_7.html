@@ -130,6 +130,27 @@ $(document).ready(function () {
 
 
 <p>This: I’m Ted and I’m updating this markdown file.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ───────────────────────────────────────────────────────────────── tidyverse 1.2.1 ──</code></pre>
+<pre><code>## ✔ ggplot2 3.0.0     ✔ purrr   0.2.5
+## ✔ tibble  1.4.2     ✔ dplyr   0.7.6
+## ✔ tidyr   0.8.1     ✔ stringr 1.3.1
+## ✔ readr   1.1.1     ✔ forcats 0.3.0</code></pre>
+<pre><code>## ── Conflicts ──────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>gc_df &lt;- read_csv(&quot;gc_df.csv&quot;)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   caseid = col_integer(),
+##   make_get_guns = col_character(),
+##   gender = col_character(),
+##   ideology = col_character(),
+##   trust_in_gov = col_character(),
+##   religion = col_character(),
+##   race = col_character()
+## )</code></pre>
+<p>We are asking: IS there a significant difference in recommended gun control action for male and female respondents?</p>
 
 
 
